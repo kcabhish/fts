@@ -1,3 +1,17 @@
+.fts-main-container {
+    height: 100%;
+    position: relative;
+}
 .fts-header-container {
     height: min(50px);
+}
+
+.fts-body-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }

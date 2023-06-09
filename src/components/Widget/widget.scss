@@ -10,6 +10,10 @@
 .widget-header {
     height: 10%;
     border-bottom: 2px solid blue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .widget-body {
     height: 80%;
