@@ -1,5 +1,6 @@
 import React from 'react'
 import './fts.scss';
+import Widget from '../Widget/Widget';
 
 export default function Fts() {
   return (
@@ -9,6 +10,7 @@ export default function Fts() {
         </div>
         <div className='fts-body-container'>
             this will render the spawned widgets. Should set the max threshod for the widget spawned.
+            <Widget />
         </div>
     </div>
   )

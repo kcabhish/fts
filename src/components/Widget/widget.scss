@@ -1,0 +1,20 @@
+.widget-container {
+    position: relative;
+    height: 650px;
+    width: 500px;
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-header {
+    height: 10%;
+    border-bottom: 2px solid blue;
+}
+.widget-body {
+    height: 80%;
+}
+.widget-footer {
+    height: 10%;
+    border-top: 2px solid blue;
+}
