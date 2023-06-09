@@ -5,6 +5,8 @@
     border: 2px solid blue;
     display: flex;
     flex-direction: column;
+    margin: 20px;
+    background-color:white;
 }
 
 .widget-header {
@@ -13,12 +15,32 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 .widget-body {
     height: 80%;
+    display: flex;
+    flex-direction: column;
 }
 .widget-footer {
+    position: relative;
     height: 10%;
     border-top: 2px solid blue;
+}
+
+.send-msg-form {
+    position: relative;
+    display: flex;
+    height: 100%;
+    textarea {
+        height: 95%;
+        width: 85%;
+        border: none;
+        outline: none;
+        resize: none;
+    }
+    button {
+        height: 100%;
+        width: 15%;
+    }
 }
