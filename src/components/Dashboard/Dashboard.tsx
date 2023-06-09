@@ -1,5 +1,6 @@
 import React from 'react'
 import './dashboard.scss';
+import { Outlet, Link } from "react-router-dom";
 export interface IDashboard {
     title?: string;
 }
@@ -8,9 +9,11 @@ export default function Dashboard(props: IDashboard) {
     <div className='dashboard-main-container'>
       <div className='dashboard-header-container'>
         <h1>{props.title}</h1>
+        <Link to="/">Home</Link>
+        <Link to="/playground">Playground</Link>
       </div>
       <div className='dashboard-body-container'>
-        The Contents within this body will be dyanmic. The first page will be for description and when user navigates it will be in the playground section
+        <Outlet />
       </div>
     </div>
   )

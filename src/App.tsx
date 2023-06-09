@@ -1,13 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.scss';
 import Dashboard from './components/Dashboard/Dashboard';
+import NoPage from './pages/NoPage';
+import Home from './pages/Home';
+import Playground from './pages/Playground';
 
-function App() {
+interface IApp {
+  pageTitle?: string;
+}
+function App(props: IApp) {
   return (
-    <div className="App">
-      <Dashboard title='Fast Translate Service!'/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard title={props.pageTitle} />}>
+          <Route index element={<Home />} />
+          <Route path="playground" element={<Playground />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
