@@ -19,6 +19,13 @@
   align-items: center;
   justify-content: space-evenly;
 }
+.vertical-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
