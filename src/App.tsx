@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import NoPage from './pages/NoPage';
 import Home from './pages/Home';
 import Playground from './pages/Playground';
+import Fts from './components/fts/Fts';
 
 interface IApp {
   pageTitle?: string;
@@ -16,6 +17,7 @@ function App(props: IApp) {
         <Route path="/" element={<Dashboard title={props.pageTitle} />}>
           <Route index element={<Home />} />
           <Route path="playground" element={<Playground />} />
+          <Route path="playground/fts" element={<Fts />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
