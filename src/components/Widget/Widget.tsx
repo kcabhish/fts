@@ -1,10 +1,16 @@
 import React, {useState} from 'react'
 import './widget.scss';
+import { ReactComponent as SendSvg } from '../svg/send.svg';
+import { ReactComponent as PlusSvg } from '../svg/plus.svg';
 
 interface IWidget {
     widgetTitle: string;
+    widgetChannel: string;
+    languageCode?: string;
 }
 export default function Widget(props: IWidget) {
+  console.log('checking props');
+  console.log(props);
   const [chatInputMsg, setChatInputMsg] = useState('');
   // @todo: this needs to be redefined for translation in phase 2
   const [messageList, setMessageList] = useState<string[]>([]);
@@ -32,9 +38,10 @@ export default function Widget(props: IWidget) {
         <div className='widget-header'>
             <div className='widget-title'>
                 <h3>{props.widgetTitle}</h3>
+                <h5>{props.widgetChannel}</h5>
             </div>
-            <div className=''>
-                icons
+            <div className='widget-icons'>
+                <span className='close-icon'><PlusSvg /></span>
             </div>
             
         </div>
@@ -48,7 +55,7 @@ export default function Widget(props: IWidget) {
         <div className='widget-footer'>
             <form name='send-msg-form' className='send-msg-form' onSubmit={sendMsg}>
                 <textarea name='chatMsg' value={chatInputMsg} onChange={(e) => setChatInputMsg(e.target.value)}></textarea>
-                <button>Send</button>
+                <button><SendSvg /></button>
             </form>
         </div>
     </div>
