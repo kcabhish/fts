@@ -36,6 +36,8 @@
     height: 80%;
     display: flex;
     flex-direction: column;
+    margin: 0 10px;
+    overflow: auto;
 }
 .widget-footer {
     position: relative;

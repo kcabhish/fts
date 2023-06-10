@@ -1,0 +1,23 @@
+.bubble {
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    word-break: break-word;
+    margin: 5px 0;
+}
+.bubble-container-outbound {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #202843;
+    color: #fff;
+}
+
+.bubble-container-inbound {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f8f5f4;
+    color: #343b53;
+}

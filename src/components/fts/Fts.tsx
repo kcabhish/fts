@@ -6,10 +6,37 @@ import { SUPPORTED_LANGUAGE } from '../../constants';
 const DEFAULT_CHANNEL = 'default channel';
 const DEFAULT_LANGUAGE = 'en';
 
+export interface IMessage {
+  id: string,
+  text: string,
+  source: {
+      languageCode: string,
+      widgetName: string,
+      channelName: string
+  }
+}
+
 export default function Fts() {
   const [widgetName, setWidgetName] = useState('');
   const [channelName, setChannelName] = useState(DEFAULT_CHANNEL);
   const [languageCode, setLanguageCode] = useState(DEFAULT_LANGUAGE);
+
+  // @todo: this needs to be redefined for translation in phase 2
+  const [messageList, setMessageList] = useState<IMessage[]>([]);
+
+    /**
+   * Grabs contents from the message after the message is sent and updates the messageList
+   * @param e 
+   */
+    const updateMessageList = (message: IMessage) => {
+      if (message) {
+          if (messageList.length > 0) {
+              setMessageList([...messageList, message]);
+          } else {
+              setMessageList([message]);
+          }
+      }
+    }
 
   const [widgets, addWidgets] = useState([{
     widgetTitle: 'Default Widget',
@@ -58,6 +85,8 @@ export default function Fts() {
               widgets.map(widgetObject => {
                 return <Widget 
                           key={widgetObject.widgetTitle}
+                          updateMessageList={updateMessageList}
+                          messageList={messageList}
                           languageCode={widgetObject.languageCode}
                           widgetChannel={widgetObject.channelName}
                           widgetTitle={widgetObject.widgetTitle}/>
