@@ -66,7 +66,11 @@ export default function Widget(props: IWidget) {
 
         <div className='widget-footer'>
             <form name='send-msg-form' className='send-msg-form' onSubmit={sendMsg}>
-                <textarea name='chatMsg' value={chatInputMsg} onChange={(e) => setChatInputMsg(e.target.value)}></textarea>
+                <textarea 
+                    maxLength={50}
+                    name='chatMsg'
+                    value={chatInputMsg}
+                    onChange={(e) => setChatInputMsg(e.target.value)}></textarea>
                 <button><SendSvg /></button>
             </form>
         </div>
