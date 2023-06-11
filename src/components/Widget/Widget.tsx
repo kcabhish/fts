@@ -8,6 +8,7 @@ import Bubble from './Bubble';
 interface IWidget {
     widgetTitle: string;
     widgetChannel: string;
+    // origin language code
     languageCode: string;
     messageList: IMessage[];
     updateMessageList: (msg:IMessage) => void
@@ -57,9 +58,11 @@ export default function Widget(props: IWidget) {
                 if (msgObj.source.widgetName === props.widgetTitle) {
                     msgType = 'outbound';
                 }
-                return <Bubble key={msgObj.id}
-                    message={msgObj}
-                    messageType={msgType}></Bubble>
+                return <Bubble
+                            languageCode={props.languageCode} 
+                            key={msgObj.id}
+                            message={msgObj}
+                            messageType={msgType}></Bubble>
             })}
             
         </div>
