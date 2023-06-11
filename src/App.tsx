@@ -11,6 +11,7 @@ interface IApp {
   pageTitle?: string;
 }
 function App(props: IApp) {
+  console.log(process.env);
   return (
     <BrowserRouter>
       <Routes>

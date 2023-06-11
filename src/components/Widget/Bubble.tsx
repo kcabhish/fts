@@ -27,14 +27,14 @@ export default function Bubble(props: IBubble) {
       
       // translate the language and then 
       const translateMessage = async () => {
-        // const msg = await translate(props.message.text, sourceLanguageCode, targetLanguageCode);
-        // console.log('INSIDE TRANSLATE');
-        // console.log(msg);
-        // setBubbleMessage(msg);
+        const msg = await translate(props.message.text, sourceLanguageCode, targetLanguageCode);
+        console.log('INSIDE TRANSLATE');
+        console.log(msg);
+        setBubbleMessage(msg);
         // mimicking response delay by 1 sec to test loading
-        setTimeout(() => {
-          setBubbleMessage(props.message.text);
-        }, 1000);
+        // setTimeout(() => {
+        //   setBubbleMessage(props.message.text);
+        // }, 1000);
         
       }
       translateMessage();
