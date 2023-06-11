@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './bubble.scss';
 import { IMessage } from '../fts/Fts';
-import { translate } from '../../utils/translate';
+import { translate } from '../../services/service';
 
 interface IBubble {
   message: IMessage;
@@ -19,23 +19,21 @@ export default function Bubble(props: IBubble) {
   useEffect(() => {
     const targetLanguageCode = props.languageCode;
     const sourceLanguageCode = props.message.source.languageCode;
-    console.log(targetLanguageCode);
-    console.log(sourceLanguageCode);
     if (targetLanguageCode === sourceLanguageCode) {
       setBubbleMessage(props.message.text);
     } else {
-      
       // translate the language and then 
       const translateMessage = async () => {
-        const msg = await translate(props.message.text, sourceLanguageCode, targetLanguageCode);
-        console.log('INSIDE TRANSLATE');
-        console.log(msg);
-        setBubbleMessage(msg);
+        const msg =await translate({
+          text: props.message.text,
+          sourceCode: sourceLanguageCode,
+          targetCode: targetLanguageCode
+        });
+
         // mimicking response delay by 1 sec to test loading
-        // setTimeout(() => {
-        //   setBubbleMessage(props.message.text);
-        // }, 1000);
-        
+        setTimeout(() => {
+          setBubbleMessage(msg.translatedText);
+        }, 1000);
       }
       translateMessage();
     }
