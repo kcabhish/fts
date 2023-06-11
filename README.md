@@ -25,3 +25,6 @@ Once both the services are running you can access the application by going to ``
 
 ## About this project
 
+This project uses [react](https://react.dev/) for the front end and [expres](https://expressjs.com/)s framework to link with [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html).
+Screen shot
+![ftsTranslate](https://github.com/kcabhish/fts/assets/6719125/77b930d8-ccce-491a-a97a-b2d7f9a490e1)
