@@ -4,6 +4,7 @@ This is a prototype app that was created to show the capability to assist with l
 This is just to show case the translation service and does not follow proper coding standard as well as secure routing of the endpoints.
 It was started as a self coding challenge to see how fast the app can be built.
 
+Project Start Date: June 9, 2023 5:34am.
 MVP status was reached at 12:30 pm Sunday 6/11/2023.
 
 ## How to run the application
