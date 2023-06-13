@@ -15,6 +15,7 @@ interface IWidget {
 
 export default function Widget(props: IWidget) {
   const [chatInputMsg, setChatInputMsg] = useState('');
+  // State variable to enable or disable translation
   const [translateToggle, setTranslateToggle] = useState(false);
   /**
    * Grabs contents from the message after the message is sent
@@ -40,10 +41,6 @@ export default function Widget(props: IWidget) {
 
   return (
     <div className='widget-container'>
-        {/* <WidgetHeader
-            widgetChannel = {props.widgetChannel}
-            languageCode={props.languageCode}
-            widgetTitle={props.widgetTitle} /> */}
         <div className='widget-header'>
             <div className='widget-title'>
                 <h3>{props.widgetTitle}</h3>
@@ -63,7 +60,7 @@ export default function Widget(props: IWidget) {
                     msgType = 'outbound';
                 }
                 return <Bubble
-                            enableTranslate={false}
+                            enableTranslate={translateToggle}
                             languageCode={props.languageCode} 
                             key={msgObj.id}
                             message={msgObj}
