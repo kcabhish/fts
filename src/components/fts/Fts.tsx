@@ -38,24 +38,47 @@ export default function Fts() {
       }
     }
 
-  const [widgets, addWidgets] = useState([{
+  const [widgets, updateWidgets] = useState([{
     widgetTitle: 'Default Widget',
     channelName: DEFAULT_CHANNEL,
-    languageCode: DEFAULT_LANGUAGE
+    languageCode: DEFAULT_LANGUAGE,
+    isActive: true
   }]);
   
+  /**
+   * Adds a new chat container on the UI 
+   * @param e 
+   */
   const addContainers = (e:any) => {
     e.preventDefault();
     const widgetNameFormVal = e.target.widgetName.value.trim();
     const channelNameFormVal = e.target.channelName.value.trim();
     // prevent adding information if name is empty or if it already exists
     if (widgetNameFormVal && !widgets.find(widgetObject => widgetObject.widgetTitle === widgetNameFormVal)) {
-      addWidgets([...widgets, {
+      updateWidgets([...widgets, {
         widgetTitle: widgetNameFormVal,
         channelName: channelNameFormVal || DEFAULT_CHANNEL,
-        languageCode: languageCode || DEFAULT_LANGUAGE
+        languageCode: languageCode || DEFAULT_LANGUAGE,
+        isActive: true
       }]);
       setWidgetName('');
+    }
+  }
+
+  /**
+   * Call back function to remove the container when user clicks on the close icon
+   * @param widgetTitle 
+   */
+  const removeContainer = (widgetTitle: string) => {
+    try {
+      widgets.forEach(widgetObject => {
+        if (widgetObject.widgetTitle === widgetTitle) {
+          widgetObject.isActive = false;
+        }
+      });
+      updateWidgets([...widgets]);
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -83,13 +106,14 @@ export default function Fts() {
         <div className='fts-body-container'>
             {
               widgets.map(widgetObject => {
-                return <Widget 
+                return widgetObject.isActive && <Widget 
                           key={widgetObject.widgetTitle}
                           updateMessageList={updateMessageList}
                           messageList={messageList}
                           languageCode={widgetObject.languageCode}
                           widgetChannel={widgetObject.channelName}
-                          widgetTitle={widgetObject.widgetTitle}/>
+                          widgetTitle={widgetObject.widgetTitle}
+                          removeContainer={removeContainer}/>
               })
             }
         </div>

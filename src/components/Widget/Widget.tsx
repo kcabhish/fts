@@ -10,7 +10,8 @@ interface IWidget {
     // origin language code
     languageCode: string;
     messageList: IMessage[];
-    updateMessageList: (msg:IMessage) => void
+    updateMessageList: (msg:IMessage) => void;
+    removeContainer: (widgetTitle: string) => void;
 }
 
 export default function Widget(props: IWidget) {
@@ -39,6 +40,14 @@ export default function Widget(props: IWidget) {
     }
   }
 
+  const closeWidget = () => {
+    try {
+        props.removeContainer(props.widgetTitle);
+    } catch (e) {
+        console.log(e);
+    }
+  }
+
   return (
     <div className='widget-container'>
         <div className='widget-header'>
@@ -48,7 +57,7 @@ export default function Widget(props: IWidget) {
             </div>
             <div className='widget-icons'>
                 <span title={translateToggle ? 'Disable Translation' : 'Enable Translation'} className={!translateToggle ? 'toggle' : 'toggle-success'} onClick={() => setTranslateToggle(!translateToggle)}></span>
-                <span title='Close' className='close-icon'>x</span>   
+                <span title='Close' onClick={closeWidget} className='close-icon'>x</span>   
             </div>           
         </div>
         <div className='widget-body'>
