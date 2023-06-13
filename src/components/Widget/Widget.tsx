@@ -84,8 +84,8 @@ export default function Widget(props: IWidget) {
                 <h5>{props.widgetChannel} - {props.languageCode}</h5>
             </div>
             <div className='widget-icons'>
-                <span className='gear-icon' onClick={() => toggleDisplayConfig(!displayConfig)}><Gear /></span>
-                <span title={translateToggle ? 'Disable Translation' : 'Enable Translation'} className={!translateToggle ? 'toggle' : 'toggle-success'} onClick={() => setTranslateToggle(!translateToggle)}></span>
+                <span title='Click to open configuration menu' className='gear-icon' onClick={() => toggleDisplayConfig(!displayConfig)}><Gear /></span>
+                <span title={translateToggle ? 'Click to disable Translation' : 'Click to enable Translation'} className={!translateToggle ? 'toggle' : 'toggle-success'} onClick={() => setTranslateToggle(!translateToggle)}></span>
                 <span title='Close' onClick={closeWidget} className='close-icon'>x</span> 
             </div>           
         </div>
