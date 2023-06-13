@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IMessage } from '../fts/Fts';
 import { ReactComponent as SendSvg } from '../svg/send.svg';
+import { ReactComponent as Gear } from '../svg/gear.svg';
 import Bubble from './Bubble';
 import './widget.scss';
 
@@ -56,8 +57,10 @@ export default function Widget(props: IWidget) {
                 <h5>{props.widgetChannel} - {props.languageCode}</h5>
             </div>
             <div className='widget-icons'>
+                <span className='gear-icon'><Gear /></span>
                 <span title={translateToggle ? 'Disable Translation' : 'Enable Translation'} className={!translateToggle ? 'toggle' : 'toggle-success'} onClick={() => setTranslateToggle(!translateToggle)}></span>
-                <span title='Close' onClick={closeWidget} className='close-icon'>x</span>   
+                <span title='Close' onClick={closeWidget} className='close-icon'>x</span>
+                
             </div>           
         </div>
         <div className='widget-body'>

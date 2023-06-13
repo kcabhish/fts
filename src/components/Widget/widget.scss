@@ -28,8 +28,14 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
-        width: 40px;
+        width: 60px;
+        margin-right: -15px;
         font-size: x-large;
+        .gear-icon {
+            height: 22px;
+            width: 18px;
+            cursor: pointer;
+        }
         .close-icon {
             cursor: pointer;
             &:hover {
