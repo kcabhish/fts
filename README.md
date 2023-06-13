@@ -9,11 +9,8 @@ MVP status was reached at 12:30 pm Sunday 6/11/2023.
 
 ## How to run the application
 #### prerequisite
-The application requires AWS access to utilize the translation service. The credentials needs to be placed in ```workspace\translateService\.env```.
-```
-AWS_ACCESS_KEY_ID: Enter access key id here
-AWS_SECRET_ACCESS_KEY: Enter secret access key here
-```
+The application requires [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) with access to [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) service to run the application. 
+
 Once the AWS credentials are available you will be able to run the project by using the following instructions:
 ```
 git clone https://github.com/kcabhish/fts.git
@@ -23,6 +20,14 @@ npm start
 npm start // this will start a express server
 ```
 Once both the services are running you can access the application by going to ```http://localhost:3000```
+
+> **NOTE**
+> When running locally on your machine it will use the default aws profile. 
+> Alternatively the credentials can also be used and updated in ```workspace\translateService\.env```.
+> ```
+> AWS_ACCESS_KEY_ID: Enter access key id here
+> AWS_SECRET_ACCESS_KEY: Enter secret access key here
+> ```
 
 ## About this project
 
