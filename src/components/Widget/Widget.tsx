@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { IMessage } from '../fts/Fts';
 import { ReactComponent as SendSvg } from '../svg/send.svg';
 import { ReactComponent as Gear } from '../svg/gear.svg';
@@ -29,7 +29,7 @@ export default function Widget(props: IWidget) {
    */
   const sendMsg = (e: any) => {
     e.preventDefault();
-    const message = e.target.chatMsg.value
+    const message = chatInputMsg
     if (message) {
         setChatInputMsg('');
         const newMsgObject = {
@@ -65,6 +65,14 @@ export default function Widget(props: IWidget) {
         toggleDisplayConfig(false);
     } catch (e) {
         console.log(e);
+    }
+  }
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    switch(e.key) {
+        case 'Enter': {
+            sendMsg(e);
+        }
     }
   }
 
@@ -110,6 +118,7 @@ export default function Widget(props: IWidget) {
                     maxLength={50}
                     name='chatMsg'
                     value={chatInputMsg}
+                    onKeyDown={onKeyDown}
                     onChange={(e) => setChatInputMsg(e.target.value)}></textarea>
                 <button className='button-success'><SendSvg /></button>
             </form>
