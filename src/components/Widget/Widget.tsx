@@ -77,8 +77,7 @@ export default function Widget(props: IWidget) {
                             key={msgObj.id}
                             message={msgObj}
                             messageType={msgType}></Bubble>
-            })}
-            
+            })}  
         </div>
 
         <div className='widget-footer'>
@@ -88,7 +87,7 @@ export default function Widget(props: IWidget) {
                     name='chatMsg'
                     value={chatInputMsg}
                     onChange={(e) => setChatInputMsg(e.target.value)}></textarea>
-                <button><SendSvg /></button>
+                <button className='button-success'><SendSvg /></button>
             </form>
         </div>
     </div>
