@@ -1,135 +1,307 @@
 
 export const SUPPORTED_LANGUAGE = [
     {
-        language: 'Afrolaams',
-        languageCode: 'af'
+        "language": "Afrikaans",
+        "languageCode": "af"
     },
     {
-        language: 'Arabic',
-        languageCode: 'ar'
+        "language": "Albanian",
+        "languageCode": "sq"
     },
     {
-        language: 'Albanian',
-        languageCode: 'sq'
+        "language": "Amharic",
+        "languageCode": "am"
     },
     {
-        language: 'Bengali',
-        languageCode: 'bn'
+        "language": "Arabic",
+        "languageCode": "ar"
     },
     {
-        language: 'Catalan',
-        languageCode: 'ca'
+        "language": "Armenian",
+        "languageCode": "hy"
     },
     {
-        language: 'Chinese (Simplified)',
-        languageCode: 'zh'
+        "language": "Auto",
+        "languageCode": "auto"
     },
     {
-        language: 'Chinese (Traditional)',
-        languageCode: 'zh-TW'
+        "language": "Azerbaijani",
+        "languageCode": "az"
     },
     {
-        language: 'Czech',
-        languageCode: 'cs'
+        "language": "Bengali",
+        "languageCode": "bn"
     },
     {
-        language: 'Danish',
-        languageCode: 'da'
+        "language": "Bosnian",
+        "languageCode": "bs"
     },
     {
-        language: 'Dutch',
-        languageCode: 'nl'
+        "language": "Bulgarian",
+        "languageCode": "bg"
     },
     {
-        language: 'English',
-        languageCode: 'en'
+        "language": "Canadian French",
+        "languageCode": "fr-CA"
     },
     {
-        language: 'French',
-        languageCode: 'fr'
+        "language": "Catalan",
+        "languageCode": "ca"
     },
     {
-        language: 'German',
-        languageCode: 'de'
+        "language": "Chinese",
+        "languageCode": "zh"
     },
     {
-        language: 'Gujarati',
-        languageCode: 'gu'
+        "language": "Chinese Traditional",
+        "languageCode": "zh-TW"
     },
     {
-        language: 'Hebrew',
-        languageCode: 'he'
+        "language": "Croatian",
+        "languageCode": "hr"
     },
     {
-        language: 'Hindi',
-        languageCode: 'hi'
+        "language": "Czech",
+        "languageCode": "cs"
     },
     {
-        language: 'Italian',
-        languageCode: 'it'
+        "language": "Danish",
+        "languageCode": "da"
     },
     {
-        language: 'Japanese',
-        languageCode: 'ja'
+        "language": "Dari",
+        "languageCode": "fa-AF"
     },
     {
-        language: 'Korean',
-        languageCode: 'ko'
+        "language": "Dutch",
+        "languageCode": "nl"
     },
     {
-        language: 'Portuguese (Brazil)',
-        languageCode: 'pt'
+        "language": "English",
+        "languageCode": "en"
     },
     {
-        language: 'Portuguese (Portugal)',
-        languageCode: 'pt-PT'
+        "language": "Estonian",
+        "languageCode": "et"
     },
     {
-        language: 'Punjabi',
-        languageCode: 'pa'
+        "language": "Finnish",
+        "languageCode": "fi"
     },
     {
-        language: 'Russian',
-        languageCode: 'ru'
+        "language": "French",
+        "languageCode": "fr"
     },
     {
-        language: 'Serbian',
-        languageCode: 'sr'
+        "language": "Georgian",
+        "languageCode": "ka"
     },
     {
-        language: 'Spanish',
-        languageCode: 'es'
+        "language": "German",
+        "languageCode": "de"
     },
     {
-        language: 'Spanish (Mexico)',
-        languageCode: 'es-MX'
+        "language": "Greek",
+        "languageCode": "el"
     },
     {
-        language: 'Swedish',
-        languageCode: 'sv'
+        "language": "Gujarati",
+        "languageCode": "gu"
     },
     {
-        language: 'Tamil',
-        languageCode: 'ta'
+        "language": "Haitian Creole",
+        "languageCode": "ht"
     },
     {
-        language: 'Thai',
-        languageCode: 'th'
+        "language": "Hausa",
+        "languageCode": "ha"
     },
     {
-        language: 'Turkish',
-        languageCode: 'tr'
+        "language": "Hebrew",
+        "languageCode": "he"
     },
     {
-        language: 'Vietnamese',
-        languageCode: 'vi'
+        "language": "Hindi",
+        "languageCode": "hi"
     },
     {
-        language: 'Ukrainian',
-        languageCode: 'uk'
+        "language": "Hungarian",
+        "languageCode": "hu"
     },
     {
-        language: 'Urdu',
-        languageCode: 'ur'
+        "language": "Icelandic",
+        "languageCode": "is"
+    },
+    {
+        "language": "Indonesian",
+        "languageCode": "id"
+    },
+    {
+        "language": "Irish",
+        "languageCode": "ga"
+    },
+    {
+        "language": "Italian",
+        "languageCode": "it"
+    },
+    {
+        "language": "Japanese",
+        "languageCode": "ja"
+    },
+    {
+        "language": "Kannada",
+        "languageCode": "kn"
+    },
+    {
+        "language": "Kazakh",
+        "languageCode": "kk"
+    },
+    {
+        "language": "Korean",
+        "languageCode": "ko"
+    },
+    {
+        "language": "Latvian",
+        "languageCode": "lv"
+    },
+    {
+        "language": "Lithuanian",
+        "languageCode": "lt"
+    },
+    {
+        "language": "Macedonian",
+        "languageCode": "mk"
+    },
+    {
+        "language": "Malay",
+        "languageCode": "ms"
+    },
+    {
+        "language": "Malayalam",
+        "languageCode": "ml"
+    },
+    {
+        "language": "Maltese",
+        "languageCode": "mt"
+    },
+    {
+        "language": "Marathi",
+        "languageCode": "mr"
+    },
+    {
+        "language": "Mexican Spanish",
+        "languageCode": "es-MX"
+    },
+    {
+        "language": "Mongolian",
+        "languageCode": "mn"
+    },
+    {
+        "language": "Norwegian",
+        "languageCode": "no"
+    },
+    {
+        "language": "Pashto",
+        "languageCode": "ps"
+    },
+    {
+        "language": "Persian",
+        "languageCode": "fa"
+    },
+    {
+        "language": "Polish",
+        "languageCode": "pl"
+    },
+    {
+        "language": "Portugal Portuguese",
+        "languageCode": "pt-PT"
+    },
+    {
+        "language": "Portuguese",
+        "languageCode": "pt"
+    },
+    {
+        "language": "Punjabi",
+        "languageCode": "pa"
+    },
+    {
+        "language": "Romanian",
+        "languageCode": "ro"
+    },
+    {
+        "language": "Russian",
+        "languageCode": "ru"
+    },
+    {
+        "language": "Serbian",
+        "languageCode": "sr"
+    },
+    {
+        "language": "Sinhala",
+        "languageCode": "si"
+    },
+    {
+        "language": "Slovak",
+        "languageCode": "sk"
+    },
+    {
+        "language": "Slovenian",
+        "languageCode": "sl"
+    },
+    {
+        "language": "Somali",
+        "languageCode": "so"
+    },
+    {
+        "language": "Spanish",
+        "languageCode": "es"
+    },
+    {
+        "language": "Swahili",
+        "languageCode": "sw"
+    },
+    {
+        "language": "Swedish",
+        "languageCode": "sv"
+    },
+    {
+        "language": "Tagalog",
+        "languageCode": "tl"
+    },
+    {
+        "language": "Tamil",
+        "languageCode": "ta"
+    },
+    {
+        "language": "Telugu",
+        "languageCode": "te"
+    },
+    {
+        "language": "Thai",
+        "languageCode": "th"
+    },
+    {
+        "language": "Turkish",
+        "languageCode": "tr"
+    },
+    {
+        "language": "Ukrainian",
+        "languageCode": "uk"
+    },
+    {
+        "language": "Urdu",
+        "languageCode": "ur"
+    },
+    {
+        "language": "Uzbek",
+        "languageCode": "uz"
+    },
+    {
+        "language": "Vietnamese",
+        "languageCode": "vi"
+    },
+    {
+        "language": "Welsh",
+        "languageCode": "cy"
     }
 ];

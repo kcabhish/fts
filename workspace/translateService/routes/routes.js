@@ -43,7 +43,6 @@ router.post('/translate',async (req, res, next) => {
     } catch (e) {
         res.send('error');
     }
-
 });
 
 module.exports = router;

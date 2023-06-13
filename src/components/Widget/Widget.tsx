@@ -20,7 +20,7 @@ interface IWidget {
 export default function Widget(props: IWidget) {
   const [chatInputMsg, setChatInputMsg] = useState('');
   // State variable to enable or disable translation
-  const [translateToggle, setTranslateToggle] = useState(false);
+  const [translateToggle, setTranslateToggle] = useState(true);
 
   const [displayConfig, toggleDisplayConfig] = useState(false);
   /**
