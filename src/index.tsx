@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const pageTitle = 'Full Translate Service! (FTS!)';
+const pageTitle = 'Full Translation Service! (FTS!)';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

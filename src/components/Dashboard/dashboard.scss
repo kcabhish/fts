@@ -14,7 +14,11 @@
     justify-content: space-between;
     border-bottom: 2px solid black;
     height: min(150px);
+    h1 {
+        margin-left: 20px;
+    }
     .dashboard-nav {
+        margin-right: 20px;
         position: relative;
         display: flex;
         flex-direction: row;
@@ -33,6 +37,7 @@
     justify-content: center;
     border-top: 2px solid black;
     height: min(150px);
+
 }
 
 .dashboard-body-container {

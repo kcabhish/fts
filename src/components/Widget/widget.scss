@@ -26,12 +26,45 @@
     .widget-icons {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 40px;
+        font-size: x-large;
         .close-icon {
-            transform: rotate(0.1turn);
             cursor: pointer;
+            &:hover {
+                font-size: xx-large;
+            }
         }
+        .toggle {
+            height: 10px;
+            width: 10px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: 5px;
+            &:hover {
+                height: 15px;
+                width: 15px;
+            }
+        }
+        .toggle-success {
+            height: 10px;
+            width: 10px;
+            background-color: green;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: 5px;
+            &:hover {
+                height: 15px;
+                width: 15px;
+            }
+        }
+
     }
 }
+
+
 .widget-body {
     height: 80%;
     display: flex;

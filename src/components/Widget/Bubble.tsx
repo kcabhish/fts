@@ -7,6 +7,7 @@ interface IBubble {
   message: IMessage;
   messageType: string;
   languageCode: string;
+  enableTranslate: boolean;
 }
 /**
  * Component to render the chat messages
@@ -19,7 +20,7 @@ export default function Bubble(props: IBubble) {
   useEffect(() => {
     const targetLanguageCode = props.languageCode;
     const sourceLanguageCode = props.message.source.languageCode;
-    if (targetLanguageCode === sourceLanguageCode) {
+    if (targetLanguageCode === sourceLanguageCode || !props.enableTranslate) {
       setBubbleMessage(props.message.text);
     } else {
       // translate the language and then 
@@ -37,7 +38,8 @@ export default function Bubble(props: IBubble) {
       }
       translateMessage();
     }
-  },[]);
+  },[props]);
+
   return (
     <div className={`bubble-container-${props.messageType}`}>
         <div className={`bubble-${props.messageType}`}>

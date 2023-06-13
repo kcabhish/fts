@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import './widget.scss';
-import { ReactComponent as SendSvg } from '../svg/send.svg';
-import { ReactComponent as PlusSvg } from '../svg/plus.svg';
+import { useState } from 'react';
 import { IMessage } from '../fts/Fts';
+import { ReactComponent as SendSvg } from '../svg/send.svg';
 import Bubble from './Bubble';
+import './widget.scss';
 
 interface IWidget {
     widgetTitle: string;
@@ -16,6 +15,7 @@ interface IWidget {
 
 export default function Widget(props: IWidget) {
   const [chatInputMsg, setChatInputMsg] = useState('');
+  const [translateToggle, setTranslateToggle] = useState(false);
   /**
    * Grabs contents from the message after the message is sent
    * @param e 
@@ -40,15 +40,19 @@ export default function Widget(props: IWidget) {
 
   return (
     <div className='widget-container'>
+        {/* <WidgetHeader
+            widgetChannel = {props.widgetChannel}
+            languageCode={props.languageCode}
+            widgetTitle={props.widgetTitle} /> */}
         <div className='widget-header'>
             <div className='widget-title'>
                 <h3>{props.widgetTitle}</h3>
                 <h5>{props.widgetChannel} - {props.languageCode}</h5>
             </div>
             <div className='widget-icons'>
-                <span className='close-icon'><PlusSvg /></span>
-            </div>
-            
+                <span title={translateToggle ? 'Disable Translation' : 'Enable Translation'} className={!translateToggle ? 'toggle' : 'toggle-success'} onClick={() => setTranslateToggle(!translateToggle)}></span>
+                <span title='Close' className='close-icon'>x</span>   
+            </div>           
         </div>
         <div className='widget-body'>
             {props.messageList.map(msgObj => {
@@ -59,6 +63,7 @@ export default function Widget(props: IWidget) {
                     msgType = 'outbound';
                 }
                 return <Bubble
+                            enableTranslate={false}
                             languageCode={props.languageCode} 
                             key={msgObj.id}
                             message={msgObj}
