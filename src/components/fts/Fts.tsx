@@ -82,6 +82,26 @@ export default function Fts() {
     }
   }
 
+    /**
+   * Call back method that receives the language code and channel, then updates the value of the object in the widgets list
+   * @param title 
+   * @param languageCode 
+   * @param channel 
+   */
+    const editContainer = (title: string, languageCode: string, channel: string ) => {
+      try {
+          widgets.forEach(widgetObject => {
+            if (widgetObject.widgetTitle === title) {
+              widgetObject.channelName = channel;
+              widgetObject.languageCode = languageCode
+            }
+          });
+          updateWidgets([...widgets]);
+      } catch (e) {
+          console.log(e);
+      }
+    }
+
   return (
     <div className='fts-main-container vertical-container'>
         <div className='fts-header-container'>
@@ -99,7 +119,6 @@ export default function Fts() {
               <select name='languageCode' value={languageCode} onChange={(e) => setLanguageCode(e.target.value) }>
                 {SUPPORTED_LANGUAGE.map(languageObj => <option key={languageObj.languageCode} value={languageObj.languageCode}>{languageObj.language}</option>)}
               </select>
-
               <button className='button-primary'>Add Widget</button>
             </form>
         </div>
@@ -113,6 +132,7 @@ export default function Fts() {
                           languageCode={widgetObject.languageCode}
                           widgetChannel={widgetObject.channelName}
                           widgetTitle={widgetObject.widgetTitle}
+                          editContainer={editContainer}
                           removeContainer={removeContainer}/>
               })
             }
