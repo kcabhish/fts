@@ -3,13 +3,14 @@ const configuration = new Configuration({
     // organization: "org-3zVeYoohoUBNcRZ5dQo5TbqB",
     apiKey: process.env.CHAT_GPT,
 });
-const GPT_MODEL = process.env.GPT_MODEL || "text-davinci-003"
+const GPT_MODEL = "text-davinci-003"
 const openai = new OpenAIApi(configuration);
+
 async function sendChatRequest(message) {
   try {
     const response = await openai.createCompletion({
       model: GPT_MODEL,
-      prompt: message,
+      prompt: message.trim(),
       temperature: 0.5,
       max_tokens: 45,
       top_p: 1.0,

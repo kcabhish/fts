@@ -1,10 +1,10 @@
-import { SyntheticEvent, useState } from 'react';
+import { useState } from 'react';
 import { IMessage } from '../fts/Fts';
-import { ReactComponent as SendSvg } from '../svg/send.svg';
 import { ReactComponent as Gear } from '../svg/gear.svg';
+import { ReactComponent as SendSvg } from '../svg/send.svg';
 import Bubble from './Bubble';
-import './widget.scss';
 import WidgetConfig from './WidgetConfig';
+import './widget.scss';
 
 interface IWidget {
     widgetTitle: string;
@@ -27,7 +27,7 @@ export default function Widget(props: IWidget) {
    * Grabs contents from the message after the message is sent
    * @param e 
    */
-  const sendMsg = (e: any) => {
+  const sendMsg =async (e: any) => {
     e.preventDefault();
     const message = chatInputMsg
     if (message) {
