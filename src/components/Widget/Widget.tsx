@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { IMessage } from '../fts/Fts';
 import { ReactComponent as Gear } from '../svg/gear.svg';
 import { ReactComponent as SendSvg } from '../svg/send.svg';
@@ -23,6 +23,13 @@ export default function Widget(props: IWidget) {
   const [translateToggle, setTranslateToggle] = useState(true);
 
   const [displayConfig, toggleDisplayConfig] = useState(false);
+
+  // reference to empty div for auto scroll to bottom
+  const endOfMessageRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  },[props.messageList]);
   /**
    * Grabs contents from the message after the message is sent
    * @param e 
@@ -76,6 +83,10 @@ export default function Widget(props: IWidget) {
     }
   }
 
+  const scrollToBottom = () => {
+    endOfMessageRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
     <div className='widget-container'>
         <div className='widget-header'>
@@ -109,7 +120,8 @@ export default function Widget(props: IWidget) {
                             key={msgObj.id}
                             message={msgObj}
                             messageType={msgType}></Bubble>
-            })}  
+            })}
+            <div ref={endOfMessageRef}/>  
         </div>
 
         <div className='widget-footer'>
