@@ -1,13 +1,14 @@
 const path = require('path');
 const express = require('express');
 const { translate } = require('../utils/translate');
+const { sendChatRequest } = require('../utils/chatgpt');
+const { isActive } = require('../controllers/controllers');
+
 require('dotenv').config();
 
 const router = express.Router();
 
-router.get('/isactive', (req, res, next) => {
-    res.send('route is working');
-});
+router.get('/isactive', isActive);
 
 router.get('/environments', (req, res, next) => {
     res.send(process.env);
@@ -44,5 +45,19 @@ router.post('/translate',async (req, res, next) => {
         res.send('error');
     }
 });
+
+router.post('/chat', async (req, res) => {
+    const { message } = req.body;
+    try {
+      // Send the chat request
+      const chatReply = await sendChatRequest(message);
+      // Send the chat reply as the response
+      res.json({ reply: chatReply });
+    } catch (error) {
+      console.error('Error:', error.message);
+      res.status(500).json({ error: 'An error occurred' });
+    }
+  });
+  
 
 module.exports = router;
