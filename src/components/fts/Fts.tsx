@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './fts.scss';
 import Widget from '../Widget/Widget';
 import { SUPPORTED_LANGUAGE } from '../../constants';
+import { sendMessageToOpenAi } from '../../services/service';
 
 const DEFAULT_CHANNEL = 'default channel';
 const DEFAULT_LANGUAGE = 'en';
@@ -21,20 +22,45 @@ export default function Fts() {
   const [channelName, setChannelName] = useState(DEFAULT_CHANNEL);
   const [languageCode, setLanguageCode] = useState(DEFAULT_LANGUAGE);
 
-  // @todo: this needs to be redefined for translation in phase 2
   const [messageList, setMessageList] = useState<IMessage[]>([]);
+
+  useEffect(() => {
+
+    if (messageList.length > 0) {
+      const lastMessage = messageList[messageList.length-1]
+      const isOpenAi = lastMessage?.source.widgetName === 'openAi';
+      if (!isOpenAi) {
+        const sendMessage = async () => {
+          const response = await sendMessageToOpenAi({ "message": lastMessage?.text });    
+          const newOpenAiResponseObject = {
+              id: new Date().toISOString(),
+              text: response.reply,
+              source: {
+                  widgetName: 'openAi',
+                  channelName: channelName,
+                  languageCode: languageCode
+              }
+          }
+          setMessageList([...messageList, newOpenAiResponseObject]);
+        }
+        sendMessage();
+      }
+    }
+
+  },[messageList, channelName, languageCode]);
 
     /**
    * Grabs contents from the message after the message is sent and updates the messageList
    * @param e 
    */
-    const updateMessageList = (message: IMessage) => {
+    const updateMessageList =async (message: IMessage) => {
       if (message) {
           if (messageList.length > 0) {
               setMessageList([...messageList, message]);
           } else {
               setMessageList([message]);
           }
+
       }
     }
 

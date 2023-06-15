@@ -19,6 +19,15 @@ export const translate = async (body: ITranslate) => {
   return response.data;
 }
 
+interface ISendMessageToOpenAi {
+  message: string;
+}
+export const sendMessageToOpenAi = async (body: ISendMessageToOpenAi) => {
+  const url = BASE_URL+'chat';
+  const response =await postMethod(url, body);
+  return response.data;
+}
+
 const getMethod = (url: string) => {
   axios.get(url)
   .then(function (response) {
