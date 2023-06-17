@@ -9,9 +9,9 @@ const GPT_MODEL = [
 ]
 const openai = new OpenAIApi(configuration);
 
-async function sendChatRequest(message) {
+async function sendChatRequest(message, gptModel = GPT_MODEL[1]) {
   try {
-    const response = await responseByModel(GPT_MODEL[0], message);
+    const response = await responseByModel(gptModel, message);
     return response;
   } catch (error) {
     console.log(error.message);
@@ -34,6 +34,13 @@ async function responseByModel(openAiModel, message) {
         presence_penalty: 0.0
       });
       return response.data.choices[0].text.trim();
+    }
+    case 'gpt-3.5-turbo': {
+      const response =await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: message}],
+      });
+      return response.data.choices[0].message.content;
     }
     default: {
       return response;
