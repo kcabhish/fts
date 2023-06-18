@@ -32,9 +32,6 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
-      - name: Publish JS filename
-        id: publish-step-id
-        run: find dist/assets/*.js -type f -execdir echo 'scriptidentifier={}' >> $GITHUB_OUTPUT ';'
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
