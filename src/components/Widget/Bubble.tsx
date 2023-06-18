@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import './bubble.scss';
 import { IMessage } from '../fts/Fts';
 import { translate } from '../../services/service';
@@ -9,43 +9,42 @@ interface IBubble {
   languageCode: string;
   enableTranslate: boolean;
 }
+
 /**
  * Component to render the chat messages
  * @param props 
  * @returns 
  */
 export default function Bubble(props: IBubble) {
+  const { message, messageType, languageCode, enableTranslate } = props;
   const [bubbleMessage, setBubbleMessage] = useState('');
 
   useEffect(() => {
-    const targetLanguageCode = props.languageCode;
-    const sourceLanguageCode = props.message.source.languageCode;
-    if (targetLanguageCode === sourceLanguageCode || !props.enableTranslate) {
-      setBubbleMessage(props.message.text);
+    if (!enableTranslate || languageCode === message.source.languageCode) {
+      setBubbleMessage(message.text);
     } else {
-      // translate the language and then 
       const translateMessage = async () => {
-        const msg =await translate({
-          text: props.message.text,
-          sourceCode: sourceLanguageCode,
-          targetCode: targetLanguageCode
+        const translatedMessage = await translate({
+          text: message.text,
+          sourceCode: message.source.languageCode,
+          targetCode: languageCode
         });
-
-        // mimicking response delay by 1 sec to test loading
         setTimeout(() => {
-          setBubbleMessage(msg.translatedText);
+          setBubbleMessage(translatedMessage.translatedText);
         }, 1000);
-      }
+      };
       translateMessage();
     }
-  },[props]);
+  }, [message, messageType, languageCode, enableTranslate]);
+
+  const author = messageType === 'inbound' ? <div className='author'>{message.source.widgetName}</div> : null;
 
   return (
-    <div className={`bubble-container-${props.messageType}`}>
-        <div className={`bubble-${props.messageType}`}>
-          {props.messageType === 'inbound' && <div className='author'>{props.message.source.widgetName}</div>}
-          {!!bubbleMessage ? bubbleMessage : '...'}
-        </div>
+    <div className={`bubble-container-${messageType}`}>
+      <div className={`bubble-${messageType}`}>
+        {author}
+        {bubbleMessage || '...'}
+      </div>
     </div>
-  )
+  );
 }
