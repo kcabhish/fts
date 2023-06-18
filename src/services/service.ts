@@ -5,8 +5,9 @@ const BASE_URL = 'http://localhost:3001/';
 
 export const isActive = async () => {
     const url = BASE_URL+'isactive';
-    const response = await getMethod(url);
-}
+    const resp = await getMethod(url);
+    return resp;
+};
 
 interface ITranslate {
   text: string;
@@ -17,7 +18,7 @@ export const translate = async (body: ITranslate) => {
   const url = BASE_URL+'translate';
   const response =await postMethod(url, body);
   return response.data;
-}
+};
 
 interface ISendMessageToOpenAi {
   message: string;
@@ -26,7 +27,7 @@ export const sendMessageToOpenAi = async (body: ISendMessageToOpenAi) => {
   const url = BASE_URL+'chat';
   const response =await postMethod(url, body);
   return response.data;
-}
+};
 
 const getMethod = (url: string) => {
   axios.get(url)
@@ -41,7 +42,7 @@ const getMethod = (url: string) => {
   .finally(function () {
     // always executed
   });
-} 
+}; 
 
 const postMethod =async (url: string, body: any) => {
   return await axios.post(url, body, {
@@ -49,4 +50,4 @@ const postMethod =async (url: string, body: any) => {
       "Content-Type": "application/x-www-form-urlencoded"
     }
   });
-}
+};
