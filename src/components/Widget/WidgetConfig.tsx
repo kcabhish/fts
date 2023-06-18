@@ -10,17 +10,15 @@ interface IWidgetConfig {
 }
 
 export default function WidgetConfig(props: IWidgetConfig) {
-  const [languageCode, setLanguageCode] = useState(props.languageCode);
-  const [channelName, setChannelName] = useState(props.widgetChannel);
+  const [formState, setFormState] = useState({ languageCode: props.languageCode, channelName: props.widgetChannel });
 
   const editContainer = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const channelNameFormVal = channelName.trim();
-    const languageCodeFormVal = languageCode;
-    if (!!channelNameFormVal && !!languageCodeFormVal) {
-      props.editContainer(props.widgetTitle, languageCodeFormVal, channelNameFormVal);
+    const { languageCode, channelName } = formState;
+    if (!!channelName.trim() && !!languageCode) {
+      props.editContainer(props.widgetTitle, languageCode, channelName);
     } else {
-      console.log('Error: required field not filled');
+      console.error('Error: required field not filled');
     }
   };
 
@@ -31,17 +29,24 @@ export default function WidgetConfig(props: IWidgetConfig) {
           type='text'
           placeholder='Enter Channel name'
           name='channelName'
-          value={channelName}
-          onChange={(e) => setChannelName(e.target.value)}
+          value={formState.channelName}
+          onChange={(e) => setFormState({ ...formState, channelName: e.target.value })}
+          required
         />
-        <select name='languageCode' value={languageCode} onChange={(e) => setLanguageCode(e.target.value)}>
+        <select
+          name='languageCode'
+          value={formState.languageCode}
+          onChange={(e) => setFormState({ ...formState, languageCode: e.target.value })}
+        >
           {SUPPORTED_LANGUAGE.map((languageObj) => (
             <option key={languageObj.languageCode} value={languageObj.languageCode}>
               {languageObj.language}
             </option>
           ))}
         </select>
-        <button className='button-primary'>Update</button>
+        <button className="button-primary" data-testid="update-button">
+          Update
+        </button>
       </form>
     </div>
   );
