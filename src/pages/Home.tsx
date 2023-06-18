@@ -1,5 +1,3 @@
-import React from 'react'
-import { Outlet, Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -11,5 +9,5 @@ export default function Home() {
         Use the navigation option from the top right to browse through the page.
         </p>
     </div>
-  )
+  );
 }

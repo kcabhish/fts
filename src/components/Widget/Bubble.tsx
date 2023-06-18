@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './bubble.scss';
-import { IMessage } from '../fts/Fts';
+import { useEffect, useState } from 'react';
 import { translate } from '../../services/service';
+import { IMessage } from '../fts/Fts';
+import './bubble.scss';
 
 interface IBubble {
   message: IMessage;

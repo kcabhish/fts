@@ -1,5 +1,4 @@
-import React from 'react'
-import Card from '../components/Card/Card'
+import Card from '../components/Card/Card';
 
 
 export default function Playground() {
@@ -11,5 +10,5 @@ export default function Playground() {
         <Card cardTitle='Sample Card'></Card>
         <Card cardTitle='Sample Card'></Card>
     </div>
-  )
+  );
 }

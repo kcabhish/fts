@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import './fts.scss';
-import Widget from '../Widget/Widget';
+import { useCallback, useEffect, useState } from 'react';
 import { SUPPORTED_LANGUAGE } from '../../constants';
 import { sendMessageToOpenAi } from '../../services/service';
+import Widget from '../Widget/Widget';
+import './fts.scss';
 
 const DEFAULT_CHANNEL = 'default channel';
 const DEFAULT_LANGUAGE = 'en';

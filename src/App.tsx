@@ -1,11 +1,10 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.scss';
 import Dashboard from './components/Dashboard/Dashboard';
-import NoPage from './pages/NoPage';
-import Home from './pages/Home';
-import Playground from './pages/Playground';
 import Fts from './components/fts/Fts';
+import Home from './pages/Home';
+import NoPage from './pages/NoPage';
+import Playground from './pages/Playground';
 
 interface IApp {
   pageTitle?: string;
