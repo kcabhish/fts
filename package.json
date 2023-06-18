@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .jsx --fix src"
   },
   "eslintConfig": {
     "extends": [
@@ -47,7 +48,9 @@
     "@babel/preset-env": "^7.22.5",
     "babel-jest": "^29.5.0",
     "react-router-dom": "^6.12.1",
-    "sass": "^1.63.2"
+    "sass": "^1.63.2",
+    "eslint": "^8.23.0",
+    "eslint-plugin-react": "^7.31.1"
   },
   "jest": {
     "transform": {
