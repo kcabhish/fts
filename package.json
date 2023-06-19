@@ -48,7 +48,7 @@
     "@babel/preset-env": "^7.22.5",
     "babel-jest": "^29.5.0",
     "react-router-dom": "^6.12.1",
-    "sass": "^1.63.2",
+    "sass": "^1.63.4",
     "eslint": "^8.23.0",
     "eslint-plugin-react": "^7.31.1"
   },
