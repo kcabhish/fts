@@ -8,12 +8,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      # Fetches code from the git repo with the commit hash that triggered the action
       - name: Get code
         uses: actions/checkout@v3
+      # caching dependencies for npm packages
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
           path: ~/.npm
+          # creates a new hash key if lock file is updated
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
@@ -27,10 +30,18 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
+        # Get cached dependencies if it exists
+      - name: Get Cached dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
       - name: Build website
         run: npm run build
+      - name: Check build files
+        run: echo "ls"
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -43,5 +54,13 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        run: echo "Placeholder Deploying..."
+      - name : Get build artifacts
+        uses : actions/download-artifact@v3
+        with :
+            name: build-files-artifact-name
+      - name: Output contents of the downloaded artifacts
+        run: |
+          echo "${{ toJSON(github) }}"
+          echo "Displaying list of downloaded artifacts..."
+          ls
+
