@@ -72,7 +72,7 @@ jobs:
       - name : Get build artifacts
         uses : actions/download-artifact@v3
         with :
-            name: build-files-artifact-name
+          name: build-files-artifact-name
             
       - name: Output contents of the downloaded artifacts
         run: |
