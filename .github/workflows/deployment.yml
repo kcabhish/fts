@@ -17,13 +17,15 @@ jobs:
 
       # caching dependencies for npm packages
       - name: Cache dependencies
+        id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: node_modules
           # creates a new hash key if lock file is updated
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Lint code
@@ -41,19 +43,22 @@ jobs:
         uses: actions/checkout@v3
         # Get cached dependencies if it exists
       - name: Get Cached dependencies
+        id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: node_modules
+          # creates a new hash key if lock file is updated
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Build website
         run: npm run build
 
       - name: Check build files
-        run: echo "ls"
+        run: ls
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
