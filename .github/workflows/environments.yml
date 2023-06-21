@@ -1,0 +1,15 @@
+name: Secrets and Variables
+
+on: workflow_dispatch
+
+env:
+   REPO_VAR: ${{ vars.TEST_VAR }}
+   REPO_SECRET: ${{ secrets.TEST_SECRET }}
+jobs:
+   display:
+      runs-on: ubuntu-latest
+      steps:
+         - name: Display vars
+           run: |
+              echo "REPO_VAR : ${{ env.REPO_VAR }}"
+              echo "REPO_SECRET: ${{ env.REPO_SECRET }}"
