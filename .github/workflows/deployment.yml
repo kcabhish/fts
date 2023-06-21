@@ -1,5 +1,6 @@
 name: Deploy website
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -33,8 +34,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: dist-files
-          path: dist
+          name: build-files-artifact-name
+          path: build
           # path: |
           #   dist
           #   package.json
