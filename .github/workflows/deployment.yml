@@ -39,8 +39,7 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-
-      # Get cached dependencies if it exists
+        # Get cached dependencies if it exists
       - name: Get Cached dependencies
         uses: actions/cache@v3
         with:
@@ -79,4 +78,3 @@ jobs:
           echo "${{ toJSON(github) }}"
           echo "Displaying list of downloaded artifacts..."
           ls
-
