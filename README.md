@@ -16,8 +16,6 @@ Once the AWS credentials are available you will be able to run the project by us
 git clone https://github.com/kcabhish/fts.git
 npm i
 npm start
-// open another terminal and navigate to workspace/translateService
-npm start // this will start a express server
 ```
 Once both the services are running you can access the application by going to ```http://localhost:3000```
 
@@ -32,5 +30,10 @@ Once both the services are running you can access the application by going to ``
 ## About this project
 
 This project uses [react](https://react.dev/) for the front end and [expres](https://expressjs.com/)s framework to link with [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html).
-Screen shot
+####Screen shot
 ![ftsTranslate](https://github.com/kcabhish/fts/assets/6719125/77b930d8-ccce-491a-a97a-b2d7f9a490e1)
+
+#### Screen shot with Open AI
+
+Translation on contents for open AI is intentianally skipped to avoid token consumption in the demo app.
+![fts](https://github.com/kcabhish/fts/assets/6719125/513e9504-a734-438f-8e3d-5f474331fa26)
