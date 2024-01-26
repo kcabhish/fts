@@ -9,7 +9,8 @@ MVP status was reached at 12:30 pm Sunday 6/11/2023.
 
 ## How to run the application
 #### prerequisite
-The application requires [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) with access to [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) service to run the application. 
+You will need to create a .env file using [.env.example](https://github.com/kcabhish/fts/blob/main/workspace/translateService/.env.example) file. Please make sure to check the path as the .env file needs to be in workspace\translateService\.env 
+This application requires [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) with access to [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) service to run the application. For opne AI you can generate the API key using this [Link](https://platform.openai.com/api-keys).
 
 Once the AWS credentials are available you will be able to run the project by using the following instructions:
 ```
