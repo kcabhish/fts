@@ -8,8 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.34",
-    "@types/react": "^18.2.13",
-    "@types/react-dom": "^18.2.6",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "react": "^18.2.0",
@@ -46,14 +46,14 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5",
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.14",
     "babel-jest": "^29.5.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.43.0",
     "eslint-plugin-react": "^7.31.1",
     "react-router-dom": "^6.13.0",
-    "sass": "^1.63.5"
+    "sass": "^1.63.6"
   },
   "jest": {
     "transform": {
